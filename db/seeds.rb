@@ -21,3 +21,18 @@ puts "Seed finished!"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 
+# Saves you an update to the DB if the record already exists
+if Post.find_by_title("A unique title")
+  puts "this unique post is already created"
+else
+  Post.create(title: "A unique title", body: "This is a unique body")
+  puts "created a unique post"
+end
+
+if Comment.find_by_body("A unique comment")
+  puts "this unique comment is already created"
+else
+  Comment.create(post: posts.sample, body: "A unique comment")
+  puts "created a unique comment"
+end
+
