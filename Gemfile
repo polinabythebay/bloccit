@@ -13,6 +13,7 @@ gem 'pry-rails'
 gem 'faker'
 gem 'devise'
 gem 'figaro'
+gem 'pundit'
 
 group :production do 
   gem 'pg'
