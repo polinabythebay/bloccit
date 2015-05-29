@@ -19,6 +19,46 @@ user.update_attributes!(
   password: 'helloworld'
   )
 
+# Create an admin
+admin = User.new(
+  name:     'Admin',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+admin.skip_confirmation!
+admin.save!
+
+# Create moderator
+moderator = User.new(
+  name:     'Moderator',
+  email:    'moderator@example.com',
+  password: 'helloworld',
+  role:     'moderator'
+)
+moderator.skip_confirmation!
+moderator.save!
+
+# Create a member
+member = User.new(
+  name:     'Member User',
+  email:    'member@example.com',
+  password: 'helloworld',
+  role:     'member'
+)
+member.skip_confirmation!
+member.save!
+
+# Create a guest
+guest = User.new(
+  name:     'Guest User',
+  email:    'guest@example.com',
+  password: 'helloworld',
+  role:     'guest'
+)
+guest.skip_confirmation!
+guest.save!
+
 # Create Posts
 50.times do 
   Post.create!(

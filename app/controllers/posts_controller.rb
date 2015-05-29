@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    logger.debug "LOGGER: #{current_user.inspect}"
+    @posts = policy_scope(Post.all)
     authorize @posts
   end
 
