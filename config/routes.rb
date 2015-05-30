@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :summaries
+
   devise_for :users
   resources :users, only: [:update]
 

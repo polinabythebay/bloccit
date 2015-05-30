@@ -61,6 +61,14 @@ topics = Topic.all
 end
 posts = Post.all 
 
+#Create Summaries
+50.times do 
+  Summary.create!(
+    body: Faker::Lorem.paragraph,
+    post: posts.sample
+    )
+end
+
 # Create Comments
 100.times do 
   Comment.create!(
@@ -75,4 +83,5 @@ puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Topic.count} topics created"
+puts "#{Summary.count} summaries created"
 

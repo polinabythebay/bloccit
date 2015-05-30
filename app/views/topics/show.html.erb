@@ -13,7 +13,13 @@
           <h4 class="media-heading">
             <%= link_to (markdown_to_html post.title), [@topic, post] %>
           </h4>
-           <small>
+          <% if Summary.find_by_post_id(post.id) %>
+            <small>
+              <b> Post Summary: </b> 
+              <%= Summary.find_by_post_id(post.id).body %>
+            </small> </br>
+          <% end %>
+          <small>
             submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
             <%= post.comments.count %> Comments
           </small>

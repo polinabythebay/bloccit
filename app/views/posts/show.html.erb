@@ -1,7 +1,15 @@
 <h1><%= markdown_to_html @post.title %></h1>
-
 <div class="row">
   <div class="col-md-8">
+    <% if Summary.find_by_post_id(@post.id) %>
+      <p>
+      <b> Post Summary: </b> 
+      <%= Summary.find_by_post_id(@post.id).body %>
+      <%= link_to "Edit Summary", edit_summary_path(@post), class: 'btn btn-success' %>
+      </p>
+    <% else %>
+     <%= link_to "Add Summary", new_summary_path(@post), class: 'btn btn-success' %>
+    <% end %>
     <p><%= markdown_to_html @post.body %></p>
   </div>
   <div class="col-md-4">
