@@ -18,6 +18,7 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'cloudinary'
 
 group :production do 
   gem 'pg'
