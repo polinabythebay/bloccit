@@ -10,11 +10,11 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
-  def markdown_title(title)
+  def markdown_title
     markdown_to_html(title)
   end
 
-  def markdown_body(body)
+  def markdown_body
     markdown_to_html(body)
   end
 
