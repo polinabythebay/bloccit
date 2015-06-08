@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @topic = @post.topic
     @comment = @post.comments.build(params[:comment].permit(:body))
     @comment.user_id = current_user.id
+    authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment was saved."
