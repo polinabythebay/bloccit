@@ -42,7 +42,7 @@ member.skip_confirmation!
 member.save!
 
 #Create topics
-15.times do
+1000.times do
   Topic.create!(
     name: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph
@@ -51,7 +51,7 @@ end
 topics = Topic.all
 
 # Create Posts
-50.times do 
+10000.times do 
   Post.create!(
     user:   users.sample,
     topic: topics.sample,
