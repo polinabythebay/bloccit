@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Vote, type: :model do
+describe Vote do
+  include TestFactories
 
   describe "validations" do
     describe "value validation" do
