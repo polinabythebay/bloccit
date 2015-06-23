@@ -32,7 +32,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
 end
 
 
