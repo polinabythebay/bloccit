@@ -10,7 +10,7 @@ describe Comment do
       @comment = Comment.new(body: 'My comment is really great', post: @post, user: @other_user)
     end
 
-    xit "sends an email to users who have favorited the post" do
+    it "sends an email to users who have favorited the post" do
       favorite = @user.favorites.create(post: @post)
 
       allow(FavoriteMailer)
@@ -24,7 +24,7 @@ describe Comment do
       @comment.save
     end
 
-    xit "does not send emails to users who haven't favorited a post" do
+    it "does not send emails to users who haven't favorited a post" do
       expect(FavoriteMailer)
         .not_to receive(:new_comment)
       @comment.save
