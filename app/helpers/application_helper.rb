@@ -15,8 +15,9 @@ module ApplicationHelper
   end
 
   def up_vote_link_classes(post)
-    voted = current_user.voted(post)
-    if (voted && voted.up_vote?)
+    # voted = current_user.voted(post)
+    logger.debug "This is from debug"
+    if (current_user.voted(post) && current_user.voted(post).up_vote?)
       "glyphicon glyphicon-chevron-up voted"
     else
       "glyphicon glyphicon-chevron-up"
@@ -24,8 +25,8 @@ module ApplicationHelper
   end
 
   def down_vote_link_classes(post)
-    voted = current_user.voted(post)
-    if (voted && voted.down_vote?)
+    # voted = current_user.voted(post)
+    if (current_user.voted(post) && current_user.voted(post).down_vote?)
       "glyphicon glyphicon-chevron-down voted"
     else
       "glyphicon glyphicon-chevron-down"
