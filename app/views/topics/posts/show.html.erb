@@ -11,7 +11,7 @@
     <p><%= markdown_to_html @post.body %></p>
     <% if policy(@post.comments).show? %>
     <h3> Comments </h3>
-    <%= render @post.comments %>
+    <%= render partial: 'comments/comment', collection: @post.comments %>
      <% end %>
   </div>
   <div class="col-md-4">
