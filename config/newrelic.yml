@@ -5,14 +5,14 @@
 #
 # Generated July 09, 2015
 # 
-# This configuration file is custom generated for Self_1672
+# This configuration file is custom generated for app36730853@heroku.com
 #
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: 542d1d6e88f063c32cfc704b9ef8db8258d0e24e
+  license_key: 01411480f6cf4fe8d9d8d150a8b894ca6c8a6590
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
