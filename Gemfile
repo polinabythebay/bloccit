@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
   gem 'capybara'
+  gem 'byebug'
 end
 
 
