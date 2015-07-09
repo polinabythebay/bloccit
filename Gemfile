@@ -36,6 +36,7 @@ group :development, :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
   gem 'capybara'
   gem 'byebug'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 
