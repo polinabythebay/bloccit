@@ -20,6 +20,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'cloudinary'
 gem 'will_paginate', '~> 3.0.5'
+gem 'newrelic_rpm'
 
 group :production do 
   gem 'pg'
