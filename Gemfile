@@ -21,6 +21,8 @@ gem 'fog'
 gem 'cloudinary'
 gem 'will_paginate', '~> 3.0.5'
 gem 'newrelic_rpm'
+gem 'puma'
+gem "rack-timeout"
 
 group :production do 
   gem 'pg'
