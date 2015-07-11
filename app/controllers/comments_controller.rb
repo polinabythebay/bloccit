@@ -3,22 +3,30 @@ class CommentsController < ApplicationController
   def comment
   end
 
-  #what's a better way to reference many params in controllers? 
-  #I'm using two different ways in create and destroy
   def create
     @post = Post.find(params[:post_id])
-    @topic = @post.topic
-    @comment = @post.comments.build(params[:comment].permit(:body))
-    @comment.user_id = current_user.id
-    authorize @comment
+    @comments = @post.comments
+
+    @comment = Comment.new(comment_params)
+    @comment.user = current_user
+    @comment.post = @post
+    @new_comment = Comment.new
+
+    @authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment was saved."
-      redirect_to [@topic, @post]
+      # redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving your comment. Please try again"
-      redirect_to [@topic, @post]
+      # redirect_to [@topic, @post]
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def destroy
@@ -41,4 +49,11 @@ class CommentsController < ApplicationController
     end
 
   end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
+
 end
