@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @new_comment = Comment.new
 
-    @authorize @comment
+    authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment was saved."
@@ -30,8 +30,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts.find(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @post = 
     @comment = @post.comments.find(params[:id])
 
     authorize @comment
