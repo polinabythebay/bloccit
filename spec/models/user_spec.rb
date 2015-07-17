@@ -1,7 +1,7 @@
 require 'rails_helper'
  
   describe User do
-    include TestFactories
+    # include TestFactories
    
     describe ".top_rated" do
 

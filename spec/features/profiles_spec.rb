@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 describe "Visiting profiles" do
-  include TestFactories
+  # include TestFactories
   include Warden::Test::Helpers
   Warden.test_mode!
 
   before do
-    @user = authenticated_user
-    @post = associated_post(user: @user)
-    @comment = Comment.new(user: @user, post: @post, body: "A Comment")
-    allow(@comment).to receive(:send_favorite_emails)
-    @comment.save!
+    @user = create(:user)
+    @topic = Topic.create(description: "A topic title")
+    @post = create(:post, user: @user, topic: @topic)
+    @comment = create(:comment, post: @post, user: @user)
+    # @comment = Comment.new(user: @user, post: @post, body: "A Comment")
+    # allow(@comment).to receive(:send_favorite_emails)
+    # @comment.save!
   end
 
   describe "not signed in" do
@@ -25,10 +27,10 @@ describe "Visiting profiles" do
     end
   end
 
-  describe "signed in" do
+  describe "signed in as admin" do
 
-    before do 
-      login_as(@user, :scope => :user)
+    before do
+      login_as(create(:user, role: 'admin'), :scope => :user)
     end
 
     it "shows profile" do
